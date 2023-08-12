@@ -150,3 +150,236 @@ $(document).ready(function() {
 	}
 
 })(jQuery.fn.removeClass);
+
+
+// Wrapper
+$(function () {
+	$("#tabs").tabs();
+	$("#tabs3").tabs();
+});
+
+$(document).ready(function () {
+	$(".show-saved-one").hide();
+
+	$("#card-one div.payment-card").on("click", function () {
+		$(".payment-card img").attr(
+			"src",
+			"https://i.ibb.co/sFg4Zmt/imageedit-4-7428488427.png"
+		);
+		$("#card-one div.payment-card-selected").removeClass("payment-card-selected");
+		$(this).addClass("payment-card-selected");
+		$(this).children("img:first")[0].src = "https://reliant.org/img/bank.png";
+	});
+
+	$("#div-two div.payment-card").on("click", function () {
+		$(".payment-card img").attr(
+			"src",
+			"https://i.ibb.co/sFg4Zmt/imageedit-4-7428488427.png"
+		);
+		$("#div-two div.payment-card-selected").removeClass("payment-card-selected");
+		$(this).addClass("payment-card-selected");
+		$(this).children("img:first")[0].src = "https://reliant.org/img/bank.png";
+	});
+
+	$(".add-payment-card-one").click(function () {
+		$("#give-now-button-one").prop("disabled", true);
+		$("#saved-methods-one").css("opacity", "0.3");
+		$(".payment-card-one img").attr(
+			"src",
+			"https://i.ibb.co/sFg4Zmt/imageedit-4-7428488427.png"
+		);
+		$("#card-one div.payment-card-selected").removeClass("payment-card-selected");
+		$("#saved-methods-one").addClass("disableall");
+		ToggleEverythingOne();
+	});
+
+	$(".show-saved-one").click(function () {
+		$(".payment-card-first-one").addClass("payment-card-selected");
+		$(".payment-card-first-one").children("img:first")[0].src =
+			"https://reliant.org/img/bank.png";
+		$("#saved-methods-one").css("opacity", "1");
+		$("#give-now-button-one").prop("disabled", false);
+		$("#saved-methods-one").removeClass("disableall");
+		ToggleEverythingOne();
+	});
+
+	function ToggleEverythingOne() {
+		$(".panel-one").slideToggle("slow");
+		$(".show-saved-one").slideToggle("slow");
+		$(".add-payment-card-one").slideToggle("slow");
+	}
+
+	$("[aria-controls='tabs-1']").click(function () {
+		if ($("#account-number-one").val() && $("#routing-number-one").val()) {
+			$("#give-now-button-one").prop("disabled", false);
+		} else {
+			$("#give-now-button-one").prop("disabled", true);
+		}
+	});
+
+	$("[aria-controls='tabs-2']").click(function () {
+		if (
+			$("#cc-name-one").val() &&
+			$("#cc-number-one").val() &&
+			$("#cc-month-one").val() &&
+			$("#cc-year-one").val()
+		) {
+			$("#give-now-button-one").prop("disabled", false);
+		} else {
+			$("#give-now-button-one").prop("disabled", true);
+		}
+	});
+
+	$("[aria-controls='tabs-3']").click(function () {
+		$("#give-now-button-one").prop("disabled", false);
+	});
+
+	$("#account-number-one, #routing-number-one").on("input", function () {
+		if ($("#account-number-one").val() && $("#routing-number-one").val()) {
+			$("#give-now-button-one").prop("disabled", false);
+		}
+
+		if (!$("#account-number-one").val() || !$("#routing-number-one").val()) {
+			$("#give-now-button-one").prop("disabled", true);
+		}
+	});
+
+	$("#cc-name-one, #cc-number-one, #cc-month-one, #cc-year-one").on(
+		"input",
+		function () {
+			if (
+				$("#cc-name-one").val() &&
+				$("#cc-number-one").val() &&
+				$("#cc-month-one").val() &&
+				$("#cc-year-one").val()
+			) {
+				$("#give-now-button-one").prop("disabled", false);
+			}
+
+			if (
+				!$("#cc-name-one").val() ||
+				!$("#cc-number-one").val() ||
+				!$("#cc-month-one").val() ||
+				!$("#cc-year-one").val()
+			) {
+				$("#give-now-button-one").prop("disabled", true);
+			}
+		}
+	);
+
+	$("[aria-controls='tabs-4']").click(function () {
+		if ($("#account-number-two").val() && $("#routing-number-two").val()) {
+			$("#give-now-button-two").prop("disabled", false);
+		} else {
+			$("#give-now-button-two").prop("disabled", true);
+		}
+	});
+
+	$("[aria-controls='tabs-5']").click(function () {
+		if (
+			$("#cc-name-two").val() &&
+			$("#cc-number-two").val() &&
+			$("#cc-month-two").val() &&
+			$("#cc-year-two").val()
+		) {
+			$("#give-now-button-two").prop("disabled", false);
+		} else {
+			$("#give-now-button-two").prop("disabled", true);
+		}
+	});
+
+	$("[aria-controls='tabs-6']").click(function () {
+		$("#give-now-button-two").prop("disabled", false);
+	});
+
+	$("#account-number-two, #routing-number-two").on("input", function () {
+		if ($("#account-number-two").val() && $("#routing-number-two").val()) {
+			$("#give-now-button-two").prop("disabled", false);
+		}
+
+		if (!$("#account-number-two").val() || !$("#routing-number-two").val()) {
+			$("#give-now-button-two").prop("disabled", true);
+		}
+	});
+
+	$("#cc-name-two, #cc-number-two, #cc-month-two, #cc-year-two").on(
+		"input",
+		function () {
+			if (
+				$("#cc-name-two").val() &&
+				$("#cc-number-two").val() &&
+				$("#cc-month-two").val() &&
+				$("#cc-year-two").val()
+			) {
+				$("#give-now-button-two").prop("disabled", false);
+			}
+
+			if (
+				!$("#cc-name-two").val() ||
+				!$("#cc-number-two").val() ||
+				!$("#cc-month-two").val() ||
+				!$("#cc-year-two").val()
+			) {
+				$("#give-now-button-two").prop("disabled", true);
+			}
+		}
+	);
+
+	$("[aria-controls='tabs-7']").click(function () {
+		if ($("#account-number-three").val() && $("#routing-number-three").val()) {
+			$("#give-now-button-three").prop("disabled", false);
+		} else {
+			$("#give-now-button-three").prop("disabled", true);
+		}
+	});
+
+	$("[aria-controls='tabs-8']").click(function () {
+		if (
+			$("#cc-name-three").val() &&
+			$("#cc-number-three").val() &&
+			$("#cc-month-three").val() &&
+			$("#cc-year-three").val()
+		) {
+			$("#give-now-button-three").prop("disabled", false);
+		} else {
+			$("#give-now-button-three").prop("disabled", true);
+		}
+	});
+
+	$("[aria-controls='tabs-9']").click(function () {
+		$("#give-now-button-three").prop("disabled", false);
+	});
+
+	$("#account-number-three, #routing-number-three").on("input", function () {
+		if ($("#account-number-three").val() && $("#routing-number-three").val()) {
+			$(".add-payment-three").prop("disabled", false);
+		}
+
+		if (!$("#account-number-three").val() || !$("#routing-number-three").val()) {
+			$(".add-payment-three").prop("disabled", true);
+		}
+	});
+
+	$("#cc-name-three, #cc-number-three, #cc-month-three, #cc-year-three").on(
+		"input",
+		function () {
+			if (
+				$("#cc-name-three").val() &&
+				$("#cc-number-three").val() &&
+				$("#cc-month-three").val() &&
+				$("#cc-year-three").val()
+			) {
+				$("#give-now-button-three").prop("disabled", false);
+			}
+
+			if (
+				!$("#cc-name-three").val() ||
+				!$("#cc-number-three").val() ||
+				!$("#cc-month-three").val() ||
+				!$("#cc-year-three").val()
+			) {
+				$("#give-now-button-three").prop("disabled", true);
+			}
+		}
+	);
+});
